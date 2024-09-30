@@ -34,15 +34,19 @@ class ReturnListActivity : DataBindingAppCompatActivity() {
             adapter = viewModel.adapter
         }
 
-        binding.returnListNew.onSingleClick {
-            startActivity(Intent(this, ReturnNewActivity::class.java))
-        }
-
         binding.returnListTitleScroll.setOnScrollChangeListener { _, scrollX, scrollY, _, _ ->
             binding.returnListContentScroll.scrollTo(scrollX, scrollY)
         }
         binding.returnListContentScroll.setOnScrollChangeListener { _, scrollX, scrollY, _, _ ->
             binding.returnListTitleScroll.scrollTo(scrollX, scrollY)
+        }
+
+        binding.returnListNew.onSingleClick {
+            startActivity(Intent(this, ReturnNewActivity::class.java))
+        }
+
+        binding.returnListSubmit.onSingleClick {
+            viewModel.submit()
         }
     }
 
@@ -51,7 +55,17 @@ class ReturnListActivity : DataBindingAppCompatActivity() {
     }
 
     override fun setToolTitle() {
-        binding.toolbarTitle.setText(R.string.label_lend_review)
+        binding.toolbarTitle.setText(R.string.label_return_review)
+    }
+
+    override fun setupEvent() {
+        super.setupEvent()
+
+        viewModel.update.observe(this) {
+            if (it) {
+                viewModel.refresh()
+            }
+        }
     }
 
     override fun onResume() {

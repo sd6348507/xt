@@ -30,6 +30,10 @@ class TransferListAdapter : BaseListAdapter<TransferListData, TransferListAdapte
         }
     }
 
+    fun clearSelected() {
+        selectPosition = -1
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransferListViewHolder {
         return TransferListViewHolder.from(parent)
     }

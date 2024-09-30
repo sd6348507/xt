@@ -38,20 +38,29 @@ class HttpConfig {
         // 设备和基础信息查询
         const val REQ_TYPE_ARCHIVE_BASE_SEARCH = "GDSearch"
 
-        // 设备转移未审核列表
+        // 设备转移未审核列表 查询
         const val REQ_TYPE_TRANSFER_LIST = "GDZY"
+
+        // 设备转移未审核列表 提交
+        const val REQ_TYPE_TRANSFER_LIST_SUBMIT = "GDMtlStgZYTJApp"
 
         // 设备转移 提交
         const val REQ_TYPE_TRANSFER_SUBMIT = "GDZYIn"
 
-        // 设备借出未审核列表
+        // 设备借出未审核列表 查询
         const val REQ_TYPE_LEND_LIST = "GDJC"
+
+        // 设备借出未审核列表 提交
+        const val REQ_TYPE_LEND_LIST_SUBMIT = "GDMtlStgJCOutTJApp"
 
         // 设备借出 提交
         const val REQ_TYPE_LEND_SUBMIT = "GDJCOut"
 
-        // 设备归还未审核列表
+        // 设备归还未审核列表 查询
         const val REQ_TYPE_RETURN_LIST = "GDGH"
+
+        // 设备归还未审核列表 提交
+        const val REQ_TYPE_RETURN_LIST_SUBMIT = "GDMtlStgGHTJApp"
 
         // 设备归还 提交
         const val REQ_TYPE_RETURN_SUBMIT = "GDGHIn"
@@ -107,6 +116,9 @@ class HttpConfig {
         const val REQ_STR_SOURCE = "LYType"
         // 借出归还往来单位
         const val REQ_STR_COMPANY = "CompanyName"
+
+        //单号
+        const val REQ_STR_TK_NO = "TkNo"
 
         const val REQ_STR_MAKER = "Maker"
     }

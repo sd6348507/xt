@@ -77,6 +77,14 @@ class ReturnNewActivity : DataBindingAppCompatActivity() {
         binding.returnSource.onSingleClick {
             launcher.launch(Intent(this, ProviderSearchActivity::class.java))
         }
+
+        binding.returnClear.onSingleClick {
+            viewModel.clear()
+        }
+
+        binding.returnSubmitBtn.onSingleClick {
+            viewModel.submit()
+        }
     }
 
     override fun getToolbar(): Toolbar {

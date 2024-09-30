@@ -34,15 +34,19 @@ class LendListActivity : DataBindingAppCompatActivity() {
             adapter = viewModel.adapter
         }
 
-        binding.lendListNew.onSingleClick {
-            startActivity(Intent(this, LendNewActivity::class.java))
-        }
-
         binding.lendListTitleScroll.setOnScrollChangeListener { _, scrollX, scrollY, _, _ ->
             binding.lendListContentScroll.scrollTo(scrollX, scrollY)
         }
         binding.lendListContentScroll.setOnScrollChangeListener { _, scrollX, scrollY, _, _ ->
             binding.lendListTitleScroll.scrollTo(scrollX, scrollY)
+        }
+
+        binding.lendListNew.onSingleClick {
+            startActivity(Intent(this, LendNewActivity::class.java))
+        }
+
+        binding.lendListSubmit.onSingleClick {
+            viewModel.submit()
         }
     }
 
@@ -52,6 +56,16 @@ class LendListActivity : DataBindingAppCompatActivity() {
 
     override fun setToolTitle() {
         binding.toolbarTitle.setText(R.string.label_lend_review)
+    }
+
+    override fun setupEvent() {
+        super.setupEvent()
+
+        viewModel.update.observe(this) {
+            if (it) {
+                viewModel.refresh()
+            }
+        }
     }
 
     override fun onResume() {

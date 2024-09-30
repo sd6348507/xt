@@ -81,6 +81,14 @@ class LendNewActivity : DataBindingAppCompatActivity() {
         binding.lendSource.onSingleClick {
             launcher.launch(Intent(this, ProviderSearchActivity::class.java))
         }
+
+        binding.lendClear.onSingleClick {
+            viewModel.clear()
+        }
+
+        binding.lendSubmitBtn.onSingleClick {
+            viewModel.submit()
+        }
     }
 
     override fun getToolbar(): Toolbar {

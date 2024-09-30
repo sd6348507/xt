@@ -12,8 +12,6 @@
         android:id="@+id/lend_title_order"
         android:layout_width="96dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:minWidth="72dp"
         android:gravity="center"
         android:text="@string/label_order"
         android:textColor="@color/color_text_black_primary"
@@ -22,10 +20,8 @@
 
     <TextView
         android:id="@+id/lend_title_source"
-        android:layout_width="96dp"
+        android:layout_width="112dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:minWidth="72dp"
         android:gravity="center"
         android:text="@string/label_lend_source"
         android:textColor="@color/color_text_black_primary"
@@ -36,8 +32,6 @@
         android:id="@+id/lend_title_archive_name"
         android:layout_width="96dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:minWidth="72dp"
         android:gravity="center"
         android:text="@string/label_archive_name"
         android:textColor="@color/color_text_black_primary"
@@ -46,10 +40,8 @@
 
     <TextView
         android:id="@+id/lend_title_person"
-        android:layout_width="96dp"
+        android:layout_width="112dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:minWidth="72dp"
         android:gravity="center"
         android:text="@string/label_base_person"
         android:textColor="@color/color_text_black_primary"

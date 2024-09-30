@@ -24,8 +24,6 @@
             style="@style/Item.AutoSizeText"
             android:layout_width="96dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:minWidth="72dp"
             android:gravity="center"
             android:text="@{data.tkNo}"
             android:textColor="@{isChecked ? @color/white : @color/color_text_black_primary}"/>
@@ -33,10 +31,9 @@
         <TextView
             android:id="@+id/return_content_source"
             style="@style/Item.AutoSizeText"
-            android:layout_width="96dp"
+            android:layout_width="112dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:minWidth="72dp"
+            android:maxLines="2"
             android:gravity="center"
             android:text="@{data.provider}"
             android:textColor="@{isChecked ? @color/white : @color/color_text_black_primary}"/>
@@ -46,8 +43,6 @@
             style="@style/Item.AutoSizeText"
             android:layout_width="96dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:minWidth="72dp"
             android:gravity="center"
             android:text="@{data.archiveName}"
             android:textColor="@{isChecked ? @color/white : @color/color_text_black_primary}"/>
@@ -55,10 +50,9 @@
         <TextView
             android:id="@+id/return_content_person"
             style="@style/Item.AutoSizeText"
-            android:layout_width="96dp"
+            android:layout_width="112dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:minWidth="72dp"
+            android:maxLines="2"
             android:gravity="center"
             android:text="@{data.person}"
             android:textColor="@{isChecked ? @color/white : @color/color_text_black_primary}"/>

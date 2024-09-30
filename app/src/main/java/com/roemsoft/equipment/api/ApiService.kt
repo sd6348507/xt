@@ -97,13 +97,22 @@ interface ApiService {
         @Query(HttpConfig.REQ_STR) reqStr: String
     ): HttpResult<DataSet<ArchiveBaseData>>
 
-    // 设备转移未审核列表
+    // 设备转移未审核列表 查询
     // ReqType=GDZY&ReqStr=Maker=罗江萍(18879971948)
     @GET(HttpConfig.URL_PATH)
     suspend fun fetchTransferList(
         @Query(HttpConfig.REQ_TYPE) reqType: String = HttpConfig.REQ_TYPE_TRANSFER_LIST,
         @Query(HttpConfig.REQ_STR) reqStr: String
     ): HttpResult<DataSet<TransferListData>>
+
+    // 设备转移未审核列表 提交
+    // ReqType=GDMtlStgZYTJApp&ReqStr=TkNo=GZ24090001;Maker=彭靖惠
+    @FormUrlEncoded
+    @POST(HttpConfig.URL_PATH)
+    suspend fun transferListSubmit(
+        @Field(HttpConfig.REQ_TYPE) reqType: String = HttpConfig.REQ_TYPE_TRANSFER_LIST_SUBMIT,
+        @Field(HttpConfig.REQ_STR) reqStr: String
+    ): HttpResult<Any?>
 
     // 设备转移 提交
     // ReqType=GDZYIn&ReqStr=CostDepartNo=P;GDNum=PBG240520;OldGDUseDepartName=版师组;OldGDPerson=陈艳红(13684856179);OldCFPostion=财务室;
@@ -115,12 +124,21 @@ interface ApiService {
         @Field(HttpConfig.REQ_STR) reqStr: String
     ): HttpResult<Any?>
 
-    // 设备借出未审核列表
+    // 设备借出未审核列表 查询
     // ReqType=GDJC
     @GET(HttpConfig.URL_PATH)
     suspend fun fetchLendList(
         @Query(HttpConfig.REQ_TYPE) reqType: String = HttpConfig.REQ_TYPE_LEND_LIST
     ): HttpResult<DataSet<LRListData>>
+
+    // 设备借出未审核列表 提交
+    // ReqType=GDMtlStgJCOutTJApp&ReqStr=TkNo=GJ24090005;Maker=彭靖惠
+    @FormUrlEncoded
+    @POST(HttpConfig.URL_PATH)
+    suspend fun lendListSubmit(
+        @Field(HttpConfig.REQ_TYPE) reqType: String = HttpConfig.REQ_TYPE_LEND_LIST_SUBMIT,
+        @Field(HttpConfig.REQ_STR) reqStr: String
+    ): HttpResult<Any?>
 
     // 设备借出 提交
     // ReqType=GDJCOut&ReqStr=CostDepartNo=P;CompanyName=皇亚鞋业加工厂;GDNum=PBG240520;GDUseDepartName=版师组;
@@ -132,12 +150,21 @@ interface ApiService {
         @Field(HttpConfig.REQ_STR) reqStr: String
     ): HttpResult<Any?>
 
-    // 设备归还未审核列表
+    // 设备归还未审核列表 查询
     // ReqType=GDGH
     @GET(HttpConfig.URL_PATH)
     suspend fun fetchReturnList(
         @Query(HttpConfig.REQ_TYPE) reqType: String = HttpConfig.REQ_TYPE_RETURN_LIST
     ): HttpResult<DataSet<LRListData>>
+
+    // 设备归还未审核列表 提交
+    // ReqType=GDMtlStgGHTJApp&ReqStr=TkNo=GH24090002;Maker=彭靖惠
+    @FormUrlEncoded
+    @POST(HttpConfig.URL_PATH)
+    suspend fun returnListSubmit(
+        @Field(HttpConfig.REQ_TYPE) reqType: String = HttpConfig.REQ_TYPE_RETURN_LIST_SUBMIT,
+        @Field(HttpConfig.REQ_STR) reqStr: String
+    ): HttpResult<Any?>
 
     // 设备归还 提交
     // ReqType=GDGHIn&ReqStr=CostDepartNo=P;CompanyName=皇亚鞋业加工厂;GDNum=PBG240520;GDUseDepartName=版师组;

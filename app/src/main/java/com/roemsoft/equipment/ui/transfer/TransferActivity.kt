@@ -120,11 +120,7 @@ class TransferActivity : DataBindingAppCompatActivity() {
         }
 
         binding.printBtn.onSingleClick {
-            if (!needUpdatePreview) {
-                CustomerToast(this, "请先提交数据！", Toast.LENGTH_SHORT).show()
-                return@onSingleClick
-            }
-            if (preview == null) {
+            if (preview == null || needUpdatePreview) {
                 generatePreviewBitmap()
                 needUpdatePreview = false
             }

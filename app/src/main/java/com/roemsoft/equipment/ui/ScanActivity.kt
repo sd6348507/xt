@@ -166,7 +166,7 @@ class ScanActivity : AppCompatActivity() {
     }
 
     private fun onScannerResult(result: String?) {
-        setResult(SCAN_SUCCESS, Intent().putExtra(SCAN_RESULT, result))
+        setResult(SCAN_SUCCESS, Intent().putExtra(SCAN_RESULT, result?.trim()))
         finish()
     }
 

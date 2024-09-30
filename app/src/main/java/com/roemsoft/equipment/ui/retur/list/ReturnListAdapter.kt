@@ -29,6 +29,10 @@ class ReturnListAdapter : BaseListAdapter<LRListData, ReturnListAdapter.ReturnLi
         }
     }
 
+    fun clearSelected() {
+        selectPosition = -1
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReturnListViewHolder {
         return ReturnListViewHolder.from(parent)
     }

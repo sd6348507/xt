@@ -58,6 +58,20 @@ class TransferListActivity : DataBindingAppCompatActivity() {
         binding.transferListNew.onSingleClick {
             startActivity(Intent(this, TransferActivity::class.java))
         }
+
+        binding.transferListSubmit.onSingleClick {
+            viewModel.submit()
+        }
+    }
+
+    override fun setupEvent() {
+        super.setupEvent()
+
+        viewModel.update.observe(this) {
+            if (it) {
+                viewModel.loadData()
+            }
+        }
     }
 
     override fun onStart() {

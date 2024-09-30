@@ -271,7 +271,7 @@ class AppRepository(private val api: ApiService) {
     }
 
     /**
-     * 设备转移未审核列表
+     * 设备转移未审核列表 查询
      * ReqStr=Maker=罗江萍(18879971948)
      */
     suspend fun fetchTransferList(user: String): Flow<RespResult<DataSet<TransferListData>>> {
@@ -285,6 +285,26 @@ class AppRepository(private val api: ApiService) {
                     } else {
                         emit(RespResult.Error(Exception("缺少必要的[DataSet]参数")))
                     }
+                } else {
+                    emit(RespResult.Failure(resp.msg))
+                }
+            } catch (e: Exception) {
+                emit(RespResult.Error(e))
+            }
+        }.flowOn(Dispatchers.IO)
+    }
+
+    /**
+     * 设备转移未审核列表 提交
+     * ReqStr=TkNo=GZ24090001;Maker=彭靖惠
+     */
+    suspend fun transferListSubmit(tkNo: String, user: String): Flow<RespResult<Any?>> {
+        return flow {
+            try {
+                val reqStr = "${HttpConfig.REQ_STR_TK_NO}=$tkNo;${HttpConfig.REQ_STR_MAKER}=$user"
+                val resp = api.transferListSubmit(reqStr = reqStr)
+                if (resp.result == 1) {
+                    emit(RespResult.Success(Unit))
                 } else {
                     emit(RespResult.Failure(resp.msg))
                 }
@@ -329,7 +349,7 @@ class AppRepository(private val api: ApiService) {
     }
 
     /**
-     * 设备借出未审核列表
+     * 设备借出未审核列表 查询
      */
     suspend fun fetchLendList(): Flow<RespResult<DataSet<LRListData>>> {
         return flow {
@@ -341,6 +361,26 @@ class AppRepository(private val api: ApiService) {
                     } else {
                         emit(RespResult.Error(Exception("缺少必要的[DataSet]参数")))
                     }
+                } else {
+                    emit(RespResult.Failure(resp.msg))
+                }
+            } catch (e: Exception) {
+                emit(RespResult.Error(e))
+            }
+        }.flowOn(Dispatchers.IO)
+    }
+
+    /**
+     * 设备借出未审核列表 提交
+     * ReqStr=TkNo=GJ24090005;Maker=彭靖惠
+     */
+    suspend fun lendListSubmit(tkNo: String, user: String): Flow<RespResult<Any?>> {
+        return flow {
+            try {
+                val reqStr = "${HttpConfig.REQ_STR_TK_NO}=$tkNo;${HttpConfig.REQ_STR_MAKER}=$user"
+                val resp = api.lendListSubmit(reqStr = reqStr)
+                if (resp.result == 1) {
+                    emit(RespResult.Success(Unit))
                 } else {
                     emit(RespResult.Failure(resp.msg))
                 }
@@ -382,7 +422,7 @@ class AppRepository(private val api: ApiService) {
     }
 
     /**
-     * 设备归还未审核列表
+     * 设备归还未审核列表 查询
      */
     suspend fun fetchReturnList(): Flow<RespResult<DataSet<LRListData>>> {
         return flow {
@@ -394,6 +434,26 @@ class AppRepository(private val api: ApiService) {
                     } else {
                         emit(RespResult.Error(Exception("缺少必要的[DataSet]参数")))
                     }
+                } else {
+                    emit(RespResult.Failure(resp.msg))
+                }
+            } catch (e: Exception) {
+                emit(RespResult.Error(e))
+            }
+        }.flowOn(Dispatchers.IO)
+    }
+
+    /**
+     * 设备归还未审核列表 提交
+     * ReqStr=TkNo=GH24090002;Maker=彭靖惠
+     */
+    suspend fun returnListSubmit(tkNo: String, user: String): Flow<RespResult<Any?>> {
+        return flow {
+            try {
+                val reqStr = "${HttpConfig.REQ_STR_TK_NO}=$tkNo;${HttpConfig.REQ_STR_MAKER}=$user"
+                val resp = api.returnListSubmit(reqStr = reqStr)
+                if (resp.result == 1) {
+                    emit(RespResult.Success(Unit))
                 } else {
                     emit(RespResult.Failure(resp.msg))
                 }

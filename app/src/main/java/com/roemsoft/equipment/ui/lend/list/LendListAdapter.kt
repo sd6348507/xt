@@ -29,6 +29,10 @@ class LendListAdapter : BaseListAdapter<LRListData, LendListAdapter.LendListView
         }
     }
 
+    fun clearSelected() {
+        selectPosition = -1
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LendListViewHolder {
         return LendListViewHolder.from(parent)
     }
