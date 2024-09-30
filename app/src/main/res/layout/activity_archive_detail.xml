@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.roemsoft.equipment.ui.archive.detail.ArchiveDetailViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tool="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Widget.App.Toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:elevation="0dp"
+                app:layout_scrollFlags="enterAlways">
+
+                <TextView
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title" />
+
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:scrollbars="none">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/bg_info_8">
+
+                    <View
+                        android:id="@+id/divider"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="@color/black"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintHorizontal_bias="0.3"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/label_category"
+                        style="@style/Widget.Text.Info"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:gravity="center"
+                        android:text="@string/label_archive_category"
+                        app:layout_constraintBottom_toBottomOf="@id/divider_h_1"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="@id/divider"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/category"
+                        style="@style/Widget.Text.Info"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:text="@={vm.data.category}"
+                        app:layout_constraintBottom_toBottomOf="@id/label_category"
+                        app:layout_constraintLeft_toLeftOf="@id/divider"
+                        app:layout_constraintRight_toLeftOf="@id/category_star"
+                        app:layout_constraintTop_toTopOf="@id/label_category"
+                        tool:text="类别名称" />
+
+                    <ImageView
+                        android:id="@+id/category_star"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_marginEnd="4dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_star"
+                        app:layout_constraintTop_toTopOf="@id/category"
+                        app:layout_constraintBottom_toBottomOf="@id/category"
+                        app:layout_constraintRight_toRightOf="parent"/>
+
+                    <View
+                        android:id="@+id/divider_h_1"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:background="@color/black"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/label_category" />
+
+                    <TextView
+                        android:id="@+id/label_no"
+                        style="@style/Widget.Text.Info"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:gravity="center"
+                        android:text="@string/label_archive_no"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="@id/divider"
+                        app:layout_constraintTop_toBottomOf="@id/divider_h_1" />
+
+                    <TextView
+                        android:id="@+id/no"
+                        style="@style/Widget.Text.Info"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:text="@{vm.data.no}"
+                        app:layout_constraintBottom_toBottomOf="@id/label_no"
+                        app:layout_constraintLeft_toLeftOf="@id/divider"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/label_no"
+                        tool:text="设备编号" />
+
+                    <View
+                        android:id="@+id/divider_h_2"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:background="@color/black"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/label_no" />
+
+                    <TextView
+                        android:id="@+id/label_name"
+                        style="@style/Widget.Text.Info"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:gravity="center"
+                        android:text="@string/label_archive_name"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="@id/divider"
+                        app:layout_constraintTop_toBottomOf="@id/divider_h_2" />
+
+                    <EditText
+                        android:id="@+id/name"
+                        style="@style/Widget.Text.Info"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="4dp"
+                        android:inputType="text"
+                        android:autofillHints="@null"
+                        android:hint="@null"
+                        android:background="@null"
+                        android:text="@={vm.data.name}"
+                        app:layout_constraintBottom_toBottomOf="@id/label_name"
+                        app:layout_constraintLeft_toLeftOf="@id/divider"
+                        app:layout_constraintRight_toLeftOf="@id/name_star"
+                        app:layout_constraintTop_toTopOf="@id/label_name"
+                        tool:text="设备名称" />
+
+                    <ImageView
+                        android:id="@+id/name_star"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_marginEnd="4dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_star"
+                        app:layout_constraintTop_toTopOf="@id/name"
+                        app:layout_constraintBottom_toBottomOf="@id/name"
+                        app:layout_constraintRight_toRightOf="parent"/>
+
+                    <View
+                        android:id="@+id/divider_h_3"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:background="@color/black"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/label_name" />
+
+                    <TextView
+                        android:id="@+id/label_brand"
+                        style="@style/Widget.Text.Info"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:gravity="center"
+                        android:text="@string/label_archive_brand"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="@id/divider"
+                        app:layout_constraintTop_toBottomOf="@id/divider_h_3" />
+
+                    <EditText
+                        android:id="@+id/brand"
+                        style="@style/Widget.Text.Info"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:inputType="text"
+                        android:autofillHints="@null"
+                        android:hint="@null"
+                        android:background="@null"
+                        android:text="@={vm.data.brand}"
+                        app:layout_constraintBottom_toBottomOf="@id/label_brand"
+                        app:layout_constraintLeft_toLeftOf="@id/divider"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/label_brand"
+                        tool:text="品牌" />
+
+                    <View
+                        android:id="@+id/divider_h_4"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:background="@color/black"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/label_brand" />
+
+                    <TextView
+                        android:id="@+id/label_spec"
+                        style="@style/Widget.Text.Info"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:gravity="center"
+                        android:text="@string/label_archive_spec"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="@id/divider"
+                        app:layout_constraintTop_toBottomOf="@id/divider_h_4" />
+
+                    <EditText
+                        android:id="@+id/spec"
+                        style="@style/Widget.Text.Info"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:inputType="text"
+                        android:autofillHints="@null"
+                        android:hint="@null"
+                        android:background="@null"
+                        android:text="@={vm.data.spec}"
+                        app:layout_constraintBottom_toBottomOf="@id/label_spec"
+                        app:layout_constraintLeft_toLeftOf="@id/divider"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/label_spec"
+                        tool:text="规格型号" />
+
+                    <View
+                        android:id="@+id/divider_h_5"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:background="@color/black"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/label_spec" />
+
+                    <TextView
+                        android:id="@+id/label_unit"
+                        style="@style/Widget.Text.Info"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:gravity="center"
+                        android:text="@string/label_archive_unit"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="@id/divider"
+                        app:layout_constraintTop_toBottomOf="@id/divider_h_5" />
+
+                    <EditText
+                        android:id="@+id/unit"
+                        style="@style/Widget.Text.Info"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="4dp"
+                        android:inputType="text"
+                        android:autofillHints="@null"
+                        android:hint="@null"
+                        android:background="@null"
+                        android:text="@={vm.data.unit}"
+                        app:layout_constraintBottom_toBottomOf="@id/label_unit"
+                        app:layout_constraintLeft_toLeftOf="@id/divider"
+                        app:layout_constraintRight_toLeftOf="@id/unit_star"
+                        app:layout_constraintTop_toTopOf="@id/label_unit"
+                        tool:text="计量单位" />
+
+                    <ImageView
+                        android:id="@+id/unit_star"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_marginEnd="4dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_star"
+                        app:layout_constraintTop_toTopOf="@id/unit"
+                        app:layout_constraintBottom_toBottomOf="@id/unit"
+                        app:layout_constraintRight_toRightOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.core.widget.NestedScrollView>
+
+            <FrameLayout
+                android:id="@+id/bottom_layout"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@color/colorPrimary"
+                android:padding="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent">
+
+                <TextView
+                    android:id="@+id/submit"
+                    style="@style/Widget.Text.Info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+            </FrameLayout>
+        </LinearLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

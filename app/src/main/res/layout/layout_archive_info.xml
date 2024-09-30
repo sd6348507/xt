@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.roemsoft.equipment.bean.ArchiveData" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/info_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/info_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/label_archive_detail"
+            android:textColor="@color/color_text_black_primary"
+            android:textSize="18sp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_info_8">
+
+            <View
+                android:id="@+id/divider_archive"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.3"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/label_no"
+                style="@style/Widget.Text.Info"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:text="@string/label_archive_no"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/divider_archive"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/no"
+                style="@style/Widget.Text.Info"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:text="@{data.no}"
+                app:layout_constraintBottom_toBottomOf="@id/label_no"
+                app:layout_constraintLeft_toLeftOf="@id/divider_archive"
+                app:layout_constraintRight_toLeftOf="@id/no_star"
+                app:layout_constraintTop_toTopOf="@id/label_no" />
+
+            <ImageView
+                android:id="@+id/no_star"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginEnd="4dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_star"
+                app:layout_constraintTop_toTopOf="@id/no"
+                app:layout_constraintBottom_toBottomOf="@id/no"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+            <View
+                android:id="@+id/divider_archive_h_1"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/label_no" />
+
+            <TextView
+                android:id="@+id/label_name"
+                style="@style/Widget.Text.Info"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:text="@string/label_archive_name"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/divider_archive"
+                app:layout_constraintTop_toBottomOf="@id/divider_archive_h_1" />
+
+            <TextView
+                android:id="@+id/name"
+                style="@style/Widget.Text.Info"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:text="@={data.name}"
+                app:layout_constraintBottom_toBottomOf="@id/label_name"
+                app:layout_constraintLeft_toLeftOf="@id/divider_archive"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/label_name" />
+
+            <View
+                android:id="@+id/divider_archive_h_2"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/label_name" />
+
+            <TextView
+                android:id="@+id/label_brand"
+                style="@style/Widget.Text.Info"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:text="@string/label_archive_brand"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/divider_archive"
+                app:layout_constraintTop_toBottomOf="@id/divider_archive_h_2" />
+
+            <TextView
+                android:id="@+id/brand"
+                style="@style/Widget.Text.Info"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:text="@={data.brand}"
+                app:layout_constraintBottom_toBottomOf="@id/label_brand"
+                app:layout_constraintLeft_toLeftOf="@id/divider_archive"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/label_brand" />
+
+            <View
+                android:id="@+id/divider_archive_h_3"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/label_brand" />
+
+            <TextView
+                android:id="@+id/label_spec"
+                style="@style/Widget.Text.Info"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:text="@string/label_archive_spec"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/divider_archive"
+                app:layout_constraintTop_toBottomOf="@id/divider_archive_h_3" />
+
+            <TextView
+                android:id="@+id/spec"
+                style="@style/Widget.Text.Info"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:text="@={data.spec}"
+                app:layout_constraintBottom_toBottomOf="@id/label_spec"
+                app:layout_constraintLeft_toLeftOf="@id/divider_archive"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/label_spec" />
+
+            <View
+                android:id="@+id/divider_archive_h_4"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/label_spec" />
+
+            <TextView
+                android:id="@+id/label_unit"
+                style="@style/Widget.Text.Info"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:text="@string/label_archive_unit"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/divider_archive"
+                app:layout_constraintTop_toBottomOf="@id/divider_archive_h_4" />
+
+            <TextView
+                android:id="@+id/unit"
+                style="@style/Widget.Text.Info"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:text="@={data.unit}"
+                app:layout_constraintBottom_toBottomOf="@id/label_unit"
+                app:layout_constraintLeft_toLeftOf="@id/divider_archive"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/label_unit" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</layout>

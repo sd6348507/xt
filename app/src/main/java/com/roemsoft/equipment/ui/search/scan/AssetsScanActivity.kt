@@ -1,0 +1,124 @@
+package com.roemsoft.equipment.ui.search.scan
+
+import android.content.Intent
+import android.view.MotionEvent
+import android.view.View
+import android.widget.EditText
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
+import androidx.appcompat.widget.Toolbar
+import com.roemsoft.common.dialog.ProgressBarDialog
+import com.roemsoft.common.hideSoftKeyboard
+import com.roemsoft.common.onSingleClick
+import com.roemsoft.equipment.App
+import com.roemsoft.equipment.R
+import com.roemsoft.equipment.databinding.ActivityAddRepairBinding
+import com.roemsoft.equipment.databinding.ActivityAssetsScanBinding
+import com.roemsoft.equipment.ui.DataBindingAppCompatActivity
+import com.roemsoft.equipment.ui.ScanActivity
+import com.roemsoft.zltd.ScannerUnitBroadcast
+import timber.log.Timber
+
+class AssetsScanActivity : DataBindingAppCompatActivity() {
+
+    private val binding: ActivityAssetsScanBinding by binding(R.layout.activity_assets_scan)
+
+    override val viewModel: AssetsScanViewModel by viewModels()
+
+    private lateinit var scanLauncher: ActivityResultLauncher<Intent>
+
+    private val dialog by lazy {
+        ProgressBarDialog(this).build()
+    }
+
+    override fun bindingView() {
+        binding.vm = viewModel
+        binding.lifecycleOwner = this
+    }
+
+    override fun initView() {
+        scanLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == ScanActivity.SCAN_SUCCESS) {
+                val assetsNo = result.data?.getStringExtra(ScanActivity.SCAN_RESULT) ?: ""
+                Timber.tag("ScanData").i(assetsNo)
+                viewModel.assetsNo.value = assetsNo
+                viewModel.loadData()
+            }
+        }
+
+        binding.searchBtn.onSingleClick {
+            viewModel.loadData()
+        }
+
+        binding.scanImg.onSingleClick {
+            scanLauncher.launch(Intent(this, ScanActivity::class.java))
+        }
+
+        if (App.isPda()) {
+            binding.scanImg.visibility = View.INVISIBLE
+
+            val scannerUnit = ScannerUnitBroadcast(this).apply {
+                scannerResult.observe(this@AssetsScanActivity) { onScannerResult(it) }
+            }
+
+            lifecycle.addObserver(scannerUnit)
+        }
+    }
+
+    override fun getToolbar(): Toolbar {
+        return binding.toolbar
+    }
+
+    override fun setToolTitle() {
+        binding.toolbarTitle.setText(R.string.label_assets_search)
+    }
+
+    override fun setupEvent() {
+        super.setupEvent()
+
+        viewModel.loading.observe(this) {
+            if (it) {
+                dialog.show()
+            } else {
+                dialog.hide()
+            }
+        }
+    }
+
+    private fun onScannerResult(code: String) {
+        viewModel.assetsNo.value = code.trim()
+        viewModel.loadData()
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
+        //如果是点击事件，获取点击的view，并判断是否要收起键盘
+        if (ev.action == MotionEvent.ACTION_DOWN) {
+            //获取目前得到焦点的view
+            val v = currentFocus
+            //判断是否要收起并进行处理
+            if (v != null && isShouldHideKeyboard(v, ev)) {
+                this.hideSoftKeyboard(v.windowToken)
+                v.clearFocus()
+            }
+        }
+        return super.dispatchTouchEvent(ev)
+    }
+
+    //判断是否要收起键盘
+    private fun isShouldHideKeyboard(v: View, event: MotionEvent): Boolean {
+        //如果目前得到焦点的这个view是editText的话进行判断点击的位置
+        if (v is EditText) {
+            val point = intArrayOf(0, 0)
+            v.getLocationInWindow(point)
+            val left = point[0]
+            val top = point[1]
+            val bottom = top + v.getHeight()
+            val right = left + v.getWidth()
+            // 点击EditText的事件，忽略它。
+            return event.x <= left || event.x >= right || event.y <= top || event.y >= bottom
+        }
+        // 如果焦点不是EditText则忽略，这个发生在视图刚绘制完，第一个焦点不在EditText上
+        return false
+    }
+}

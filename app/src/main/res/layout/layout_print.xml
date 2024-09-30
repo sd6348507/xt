@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.roemsoft.equipment.bean.PrinterData" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+        <!--280 160-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="340dp"
+            android:layout_height="180dp"
+            android:background="@drawable/bg_black_stroke">
+
+            <View
+                android:id="@+id/line_h_1"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="@id/line_v_2"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.3" />
+
+            <View
+                android:id="@+id/line_h_2"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="@id/line_v_2"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.4" />
+
+            <View
+                android:id="@+id/line_h_3"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.5" />
+
+            <View
+                android:id="@+id/line_h_4"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.6" />
+
+            <View
+                android:id="@+id/line_h_5"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.7" />
+
+            <View
+                android:id="@+id/line_h_6"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.8" />
+
+            <View
+                android:id="@+id/line_h_7"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.9" />
+
+            <View
+                android:id="@+id/line_v_1"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/line_v_2"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toBottomOf="@id/line_h_3"
+                app:layout_constraintHorizontal_bias="0.728"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:lines="2"
+                android:text="@string/label_printer_title"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:letterSpacing="1"
+                android:lineSpacingExtra="-6dp"
+                app:layout_constraintBottom_toBottomOf="@id/line_h_1"
+                app:layout_constraintLeft_toLeftOf="@id/line_v_1"
+                app:layout_constraintRight_toRightOf="@id/line_v_2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/label_no"
+                style="@style/Widget.Text.Print"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="@string/label_printer_no"
+                app:layout_constraintBottom_toBottomOf="@id/line_h_2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="@id/line_v_1"
+                app:layout_constraintTop_toTopOf="@id/line_h_1" />
+
+            <TextView
+                android:id="@+id/no"
+                style="@style/Widget.Text.Print"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="@{data.no}"
+                app:layout_constraintBottom_toBottomOf="@id/line_h_2"
+                app:layout_constraintLeft_toLeftOf="@id/line_v_1"
+                app:layout_constraintRight_toRightOf="@id/line_v_2"
+                app:layout_constraintTop_toTopOf="@id/line_h_1" />
+
+            <TextView
+                android:id="@+id/label_name"
+                style="@style/Widget.Text.Print"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="@string/label_printer_name"
+                app:layout_constraintBottom_toBottomOf="@id/line_h_3"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="@id/line_v_1"
+                app:layout_constraintTop_toTopOf="@id/line_h_2" />
+
+            <TextView
+                android:id="@+id/name"
+                style="@style/Widget.Text.Print"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="@{data.name}"
+                app:layout_constraintBottom_toBottomOf="@id/line_h_3"
+                app:layout_constraintLeft_toLeftOf="@id/line_v_1"
+                app:layout_constraintRight_toRightOf="@id/line_v_2"
+                app:layout_constraintTop_toTopOf="@id/line_h_2" />
+
+            <TextView
+                android:id="@+id/label_spec"
+                style="@style/Widget.Text.Print"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="@string/label_printer_spec"
+                app:layout_constraintBottom_toBottomOf="@id/line_h_4"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="@id/line_v_1"
+                app:layout_constraintTop_toTopOf="@id/line_h_3" />
+
+            <TextView
+                android:id="@+id/spec"
+                style="@style/Widget.Text.Print"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="@{data.spec}"
+                app:layout_constraintBottom_toBottomOf="@id/line_h_4"
+                app:layout_constraintLeft_toLeftOf="@id/line_v_1"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/line_h_3" />
+
+            <TextView
+                android:id="@+id/label_department"
+                style="@style/Widget.Text.Print"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="@string/label_printer_department"
+                app:layout_constraintBottom_toBottomOf="@id/line_h_5"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="@id/line_v_1"
+                app:layout_constraintTop_toTopOf="@id/line_h_4" />
+
+            <TextView
+                android:id="@+id/department"
+                style="@style/Widget.Text.Print"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="@{data.department}"
+                app:layout_constraintBottom_toBottomOf="@id/line_h_5"
+                app:layout_constraintLeft_toLeftOf="@id/line_v_1"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/line_h_4" />
+
+            <TextView
+                android:id="@+id/label_area"
+                style="@style/Widget.Text.Print"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="@string/label_printer_area"
+                app:layout_constraintBottom_toBottomOf="@id/line_h_6"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="@id/line_v_1"
+                app:layout_constraintTop_toTopOf="@id/line_h_5" />
+
+            <TextView
+                android:id="@+id/area"
+                style="@style/Widget.Text.Print"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="@{data.area}"
+                app:layout_constraintBottom_toBottomOf="@id/line_h_6"
+                app:layout_constraintLeft_toLeftOf="@id/line_v_1"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/line_h_5" />
+
+            <TextView
+                android:id="@+id/label_worker"
+                style="@style/Widget.Text.Print"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="@string/label_printer_worker"
+                app:layout_constraintBottom_toBottomOf="@id/line_h_7"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="@id/line_v_1"
+                app:layout_constraintTop_toTopOf="@id/line_h_6" />
+
+            <TextView
+                android:id="@+id/worker"
+                style="@style/Widget.Text.Print"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="@{data.worker}"
+                app:layout_constraintBottom_toBottomOf="@id/line_h_7"
+                app:layout_constraintLeft_toLeftOf="@id/line_v_1"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/line_h_6" />
+
+            <TextView
+                android:id="@+id/label_date"
+                style="@style/Widget.Text.Print"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="@string/label_printer_date"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="@id/line_v_1"
+                app:layout_constraintTop_toTopOf="@id/line_h_7" />
+
+            <TextView
+                android:id="@+id/date"
+                style="@style/Widget.Text.Print"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="@{data.date}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/line_v_1"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/line_h_7" />
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:padding="1dp"
+                android:scaleType="fitCenter"
+                android:contentDescription="@null"
+                android:src="@drawable/logo"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/line_h_1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="@id/line_v_1"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+</layout>

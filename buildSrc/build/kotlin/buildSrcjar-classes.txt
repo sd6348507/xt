@@ -1,0 +1,1 @@
+G:\android_project\XT_Equipment\buildSrc\build\classes\kotlin\main\com\roemsoft\equipment\plugins\BuildConfig.class

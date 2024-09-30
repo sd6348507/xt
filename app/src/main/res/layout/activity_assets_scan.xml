@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="vm"
+            type="com.roemsoft.equipment.ui.search.scan.AssetsScanViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tool="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Widget.App.Toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:elevation="0dp"
+                app:layout_scrollFlags="enterAlways">
+
+                <TextView
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title" />
+
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <LinearLayout
+                android:id="@+id/search_layout"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/bg_search"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/search_btn"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/action_search"
+                    android:padding="14dp"
+                    android:src="@drawable/ic_search" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@color/white" />
+
+                <EditText
+                    android:id="@+id/search_et"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:autofillHints=""
+                    android:hint="@null"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:padding="4dp"
+                    android:textColorHint="@color/color_text_black_secondary"
+                    android:text="@={vm.assetsNo}"/>
+
+                <ImageView
+                    android:id="@+id/scan_img"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:contentDescription="@string/action_scan"
+                    android:padding="14dp"
+                    android:src="@drawable/ic_scan" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/search_btn"
+                android:layout_width="50dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="8dp"
+                android:textSize="14sp"
+                android:text="@string/action_search"
+                android:textColor="@color/white"
+                android:background="@drawable/selector_color_accent_4dp"
+                app:layout_constraintTop_toTopOf="@id/search_layout"
+                app:layout_constraintBottom_toBottomOf="@id/search_layout"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/info_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_info_8"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/search_layout">
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="1dp"
+                    android:layout_height="0dp"
+                    android:background="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.3"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/label_no"
+                    style="@style/Widget.Text.Info"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:gravity="center"
+                    android:text="@string/label_archive_no"
+                    app:layout_constraintBottom_toBottomOf="@id/divider_h_1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/divider"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/no"
+                    style="@style/Widget.Text.Info"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:text="@{vm.data.no}"
+                    app:layout_constraintBottom_toBottomOf="@id/label_no"
+                    app:layout_constraintLeft_toLeftOf="@id/divider"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/label_no" />
+
+                <View
+                    android:id="@+id/divider_h_1"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/black"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/label_no" />
+
+                <TextView
+                    android:id="@+id/label_name"
+                    style="@style/Widget.Text.Info"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:gravity="center"
+                    android:text="@string/label_archive_name"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/divider"
+                    app:layout_constraintTop_toBottomOf="@id/divider_h_1" />
+
+                <TextView
+                    android:id="@+id/name"
+                    style="@style/Widget.Text.Info"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:text="@{vm.data.name}"
+                    app:layout_constraintBottom_toBottomOf="@id/label_name"
+                    app:layout_constraintLeft_toLeftOf="@id/divider"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/label_name" />
+
+                <View
+                    android:id="@+id/divider_h_2"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/black"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/label_name" />
+
+                <TextView
+                    android:id="@+id/label_brand"
+                    style="@style/Widget.Text.Info"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:gravity="center"
+                    android:text="@string/label_archive_brand"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/divider"
+                    app:layout_constraintTop_toBottomOf="@id/divider_h_2" />
+
+                <TextView
+                    android:id="@+id/brand"
+                    style="@style/Widget.Text.Info"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:text="@{vm.data.brand}"
+                    app:layout_constraintBottom_toBottomOf="@id/label_brand"
+                    app:layout_constraintLeft_toLeftOf="@id/divider"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/label_brand" />
+
+                <View
+                    android:id="@+id/divider_h_3"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/black"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/label_brand" />
+
+                <TextView
+                    android:id="@+id/label_spec"
+                    style="@style/Widget.Text.Info"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:gravity="center"
+                    android:text="@string/label_archive_spec"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/divider"
+                    app:layout_constraintTop_toBottomOf="@id/divider_h_3" />
+
+                <TextView
+                    android:id="@+id/spec"
+                    style="@style/Widget.Text.Info"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:text="@{vm.data.spec}"
+                    app:layout_constraintBottom_toBottomOf="@id/label_spec"
+                    app:layout_constraintLeft_toLeftOf="@id/divider"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/label_spec"
+                    tool:text="规格型号" />
+
+                <View
+                    android:id="@+id/divider_h_4"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/black"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/label_spec" />
+
+                <TextView
+                    android:id="@+id/label_date"
+                    style="@style/Widget.Text.Info"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:gravity="center"
+                    android:text="@string/label_archive_in_date"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/divider"
+                    app:layout_constraintTop_toBottomOf="@id/divider_h_4" />
+
+                <TextView
+                    android:id="@+id/date"
+                    style="@style/Widget.Text.Info"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:text="@{vm.data.date}"
+                    app:layout_constraintBottom_toBottomOf="@id/label_date"
+                    app:layout_constraintLeft_toLeftOf="@id/divider"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/label_date" />
+
+                <View
+                    android:id="@+id/divider_h_5"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/black"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/label_date" />
+
+                <TextView
+                    android:id="@+id/label_manufacturer"
+                    style="@style/Widget.Text.Info"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:gravity="center"
+                    android:text="@string/label_archive_manufacturer"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/divider"
+                    app:layout_constraintTop_toBottomOf="@id/divider_h_5" />
+
+                <TextView
+                    android:id="@+id/manufacturer"
+                    style="@style/Widget.Text.Info"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:text="@{vm.data.manufacturer}"
+                    app:layout_constraintBottom_toBottomOf="@id/label_manufacturer"
+                    app:layout_constraintLeft_toLeftOf="@id/divider"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/label_manufacturer" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.roemsoft.equipment.ui.checkin.CheckInViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Widget.App.Toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:elevation="0dp"
+                app:layout_scrollFlags="enterAlways">
+
+                <TextView
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title" />
+
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <LinearLayout
+                android:id="@+id/bt_state_layout"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/light_blue"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/label_bt_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="0"
+                    android:text="@string/label_printer"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/bt_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:text="@{vm.isConnected() ? @string/label_printer_connected : @string/label_printer_disconnected}"
+                    android:textColor="@{vm.isConnected() ? @color/light_green : @color/text_red_primary}"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/toggle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="16dp"
+                    android:layout_weight="0"
+                    android:text="@{vm.isConnected() ? @string/action_close_bt : @string/action_open_bt}"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <include
+                        android:id="@+id/layout_base"
+                        layout="@layout/layout_base_info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        bind:com="@{vm.costCom}"
+                        bind:no="@{vm.no}"
+                        bind:person="@{vm.person}"
+                        bind:department="@{vm.department}"
+                        bind:area="@={vm.area}" />
+
+                    <include
+                        android:id="@+id/layout_archive"
+                        layout="@layout/layout_archive_info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        bind:data="@{vm.archive}" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/bg_info_8">
+
+                        <View
+                            android:id="@+id/divider_other"
+                            android:layout_width="1dp"
+                            android:layout_height="0dp"
+                            android:background="@color/black"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintHorizontal_bias="0.3"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/label_qty"
+                            style="@style/Widget.Text.Info"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:gravity="center"
+                            android:text="@string/label_qty"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/divider_other"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <EditText
+                            android:id="@+id/qty"
+                            style="@style/Widget.Text.Info"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_marginEnd="4dp"
+                            android:autofillHints="@null"
+                            android:background="@null"
+                            android:hint="@null"
+                            android:inputType="number"
+                            android:text="@={vm.qty}"
+                            app:layout_constraintBottom_toBottomOf="@id/label_qty"
+                            app:layout_constraintLeft_toLeftOf="@id/divider_other"
+                            app:layout_constraintRight_toLeftOf="@id/qty_star"
+                            app:layout_constraintTop_toTopOf="@id/label_qty" />
+
+                        <ImageView
+                            android:id="@+id/qty_star"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:layout_marginEnd="4dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_star"
+                            app:layout_constraintTop_toTopOf="@id/qty"
+                            app:layout_constraintBottom_toBottomOf="@id/qty"
+                            app:layout_constraintRight_toRightOf="parent"/>
+
+                        <View
+                            android:id="@+id/divider_h_1"
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:background="@color/black"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/label_qty" />
+
+                        <TextView
+                            android:id="@+id/label_source"
+                            style="@style/Widget.Text.Info"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:gravity="center"
+                            android:text="@string/label_source"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/divider_other"
+                            app:layout_constraintTop_toBottomOf="@id/divider_h_1" />
+
+                        <FrameLayout
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            app:layout_constraintBottom_toBottomOf="@id/label_source"
+                            app:layout_constraintLeft_toLeftOf="@id/divider_other"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/label_source">
+
+                            <androidx.appcompat.widget.AppCompatSpinner
+                                android:id="@+id/spinner"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                style="@style/AppTheme.Spinner"
+                                android:gravity="center"/>
+
+                            <TextView
+                                android:id="@+id/source"
+                                style="@style/Widget.Text.Info"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@{vm.source}"
+                                android:clickable="false"
+                                android:focusable="false"/>
+
+                        </FrameLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+            <RelativeLayout
+                android:id="@+id/bottom_layout"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_weight="0"
+                android:clickable="true"
+                android:background="@color/gray_600">
+
+                <TextView
+                    android:id="@+id/clear"
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center"
+                    android:text="@string/label_clear"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/submit_btn"
+                    android:layout_width="96dp"
+                    android:layout_height="match_parent"
+                    android:layout_toStartOf="@id/print_btn"
+                    android:background="@color/colorPrimary"
+                    android:gravity="center"
+                    android:text="@string/action_submit"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/print_btn"
+                    android:layout_width="96dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:background="@color/colorAccent"
+                    android:gravity="center"
+                    android:text="@string/action_print"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <!--<Button
+                android:id="@+id/submit"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_weight="0"
+                android:text="@string/action_submit"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:background="@drawable/selector_color_primary"/>-->
+
+        </LinearLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

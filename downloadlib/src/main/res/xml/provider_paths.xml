@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<paths>
+    &lt;!&ndash;path：需要临时授权访问的路径（.代表所有路径） name：就是你给这个访问路径起个名字&ndash;&gt;
+    <external-path
+        name="external_files"
+        path="." />
+</paths>-->
+
+<paths  xmlns:android="http://schemas.android.com/apk/res/android">
+    <external-path name="external" path="." />
+    <external-files-path name="name" path="." />  //files-path：表示 content.getExternalFilesDir() 获取到的目录。
+    <external-cache-path name="name" path="." />  //external-cache-path：表示 ContextCompat.getExternalCacheDirs() 获取到的目录
+</paths>

@@ -1,0 +1,31 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    /** -------------------------------------- Dialog -----------------------------------------
+
+    <style name="Theme.App.Dialog.NoBackground" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.6</item>
+    </style>
+
+    <style name="Theme.App.Dialog.Input" parent="Theme.App.Dialog.NoBackground">
+        <item name="android:textColorPrimary">@color/color_text_black_primary</item>
+        <item name="android:textColorSecondary">@color/color_text_black_secondary</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:windowSoftInputMode">stateVisible</item>
+    </style>
+
+    <style name="Theme.App.Dialog.Alert" parent="Theme.App.Dialog.NoBackground">
+        <item name="android:textColorPrimary">@color/color_text_black_primary</item>
+        <item name="android:textColorSecondary">@color/color_text_black_secondary</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
+
+    <style name="Theme.App.Dialog.Wait" parent="Theme.App.Dialog.NoBackground">
+        <item name="android:textColorPrimary">@color/color_text_black_primary</item>
+        <item name="android:textColorSecondary">@color/color_text_black_secondary</item>
+        <item name="android:windowCloseOnTouchOutside">false</item>
+        <item name="android:windowBackground">@drawable/abc_dialog_material_background</item>
+    </style>
+
+</resources>

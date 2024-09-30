@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="data"
+            type="com.roemsoft.equipment.bean.RepairBean" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tool="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/repair_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_repair_info"
+            android:textColor="@color/color_text_black_primary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/device" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/repair_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_info_8"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/repair_label">
+
+            <View
+                android:id="@+id/repair_divider"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.3"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/repair_divider_h_1"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.15" />
+
+            <View
+                android:id="@+id/repair_divider_h_2"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.3" />
+
+            <View
+                android:id="@+id/repair_divider_h_3"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.45" />
+
+            <View
+                android:id="@+id/repair_divider_h_4"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.6" />
+
+            <TextView
+                android:id="@+id/label_repair_no"
+                style="@style/Widget.Text.Info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/label_repair_no"
+                app:layout_constraintBottom_toBottomOf="@id/repair_divider_h_1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/repair_divider"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/repair_no"
+                style="@style/Widget.Text.Info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBaseline_toBaselineOf="@id/label_repair_no"
+                app:layout_constraintLeft_toLeftOf="@id/repair_divider"
+                app:layout_constraintRight_toRightOf="parent"
+                tool:text="维修单号" />
+
+            <TextView
+                android:id="@+id/label_repair_firm"
+                style="@style/Widget.Text.Info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/label_repair_firm"
+                app:layout_constraintBottom_toBottomOf="@id/repair_divider_h_2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/repair_divider"
+                app:layout_constraintTop_toTopOf="@id/repair_divider_h_1" />
+
+            <TextView
+                android:id="@+id/repair_firm"
+                style="@style/Widget.Text.Info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBaseline_toBaselineOf="@id/label_repair_firm"
+                app:layout_constraintLeft_toLeftOf="@id/repair_divider"
+                app:layout_constraintRight_toRightOf="parent"
+                tool:text="维修厂商" />
+
+            <TextView
+                android:id="@+id/label_repair_count"
+                style="@style/Widget.Text.Info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/label_repair_count"
+                app:layout_constraintBottom_toBottomOf="@id/repair_divider_h_3"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/repair_divider"
+                app:layout_constraintTop_toTopOf="@id/repair_divider_h_2" />
+
+            <TextView
+                android:id="@+id/repair_count"
+                style="@style/Widget.Text.Info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBaseline_toBaselineOf="@id/label_repair_count"
+                app:layout_constraintLeft_toLeftOf="@id/repair_divider"
+                app:layout_constraintRight_toRightOf="parent"
+                tool:text="维修数量" />
+
+            <TextView
+                android:id="@+id/label_repair_price"
+                style="@style/Widget.Text.Info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/label_repair_price"
+                app:layout_constraintBottom_toBottomOf="@id/repair_divider_h_4"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/repair_divider"
+                app:layout_constraintTop_toTopOf="@id/repair_divider_h_3" />
+
+            <TextView
+                android:id="@+id/repair_price"
+                style="@style/Widget.Text.Info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBaseline_toBaselineOf="@id/label_repair_price"
+                app:layout_constraintLeft_toLeftOf="@id/repair_divider"
+                app:layout_constraintRight_toRightOf="parent"
+                tool:text="维修单价" />
+
+            <TextView
+                android:id="@+id/label_repair_reason"
+                style="@style/Widget.Text.Info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/label_repair_reason"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/repair_divider"
+                app:layout_constraintTop_toTopOf="@id/repair_divider_h_4"/>
+
+            <TextView
+                android:id="@+id/repair_reason"
+                style="@style/Widget.Text.Info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:autoSizeMaxTextSize="16sp"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeStepGranularity="1sp"
+                android:maxLines="4"
+                app:layout_constraintBaseline_toBaselineOf="@id/label_repair_reason"
+                app:layout_constraintLeft_toLeftOf="@id/repair_divider"
+                app:layout_constraintRight_toRightOf="parent"
+                tool:text="维修原因" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</layout>

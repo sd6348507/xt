@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.roemsoft.equipment.ui.lend.add.LendNewViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Widget.App.Toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:elevation="0dp"
+                app:layout_scrollFlags="enterAlways">
+
+                <TextView
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title" />
+
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/lend_search_layout"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_weight="1"
+                            android:layout_margin="8dp"
+                            android:background="@drawable/bg_search"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:layout_gravity="center_vertical"
+                                android:contentDescription="@string/action_search"
+                                android:padding="14dp"
+                                android:src="@drawable/ic_search" />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginBottom="8dp"
+                                android:background="@color/white" />
+
+                            <EditText
+                                android:id="@+id/lend_search_et"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:autofillHints=""
+                                android:hint="@null"
+                                android:imeOptions="actionSearch"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:padding="4dp"
+                                android:text="@{vm.assetsNo}"
+                                android:textColorHint="@color/color_text_black_secondary"
+                                tools:ignore="NestedWeights" />
+
+                            <ImageView
+                                android:id="@+id/lend_scan_img"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:contentDescription="@string/action_scan"
+                                android:padding="14dp"
+                                android:src="@drawable/ic_scan" />
+
+                        </LinearLayout>
+
+                        <Button
+                            android:id="@+id/lend_search_btn"
+                            android:layout_width="50dp"
+                            android:layout_height="32dp"
+                            android:layout_marginEnd="8dp"
+                            android:textSize="14sp"
+                            android:text="@string/action_search"
+                            android:textColor="@color/white"
+                            android:background="@drawable/selector_color_accent_4dp"/>
+
+                    </LinearLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/bg_info_8">
+
+                        <View
+                            android:id="@+id/lend_divider_source"
+                            android:layout_width="1dp"
+                            android:layout_height="0dp"
+                            android:background="@color/black"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintHorizontal_bias="0.3"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/label_lend_source"
+                            style="@style/Widget.Text.Info"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:gravity="center"
+                            android:text="@string/label_lend_source"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/lend_divider_source"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/lend_source"
+                            style="@style/Widget.Text.Info"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:text="@{vm.provider.name}"
+                            app:layout_constraintBottom_toBottomOf="@id/label_lend_source"
+                            app:layout_constraintLeft_toLeftOf="@id/lend_divider_source"
+                            app:layout_constraintRight_toLeftOf="@id/lend_source_star"
+                            app:layout_constraintTop_toTopOf="@id/label_lend_source" />
+
+                        <ImageView
+                            android:id="@+id/lend_source_star"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:layout_marginEnd="4dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_star"
+                            app:layout_constraintBottom_toBottomOf="@id/lend_source"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/lend_source" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/lend_info_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:text="@string/label_base_info"
+                        android:textColor="@color/color_text_black_primary"
+                        android:textSize="18sp" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/bg_info_8">
+
+                        <View
+                            android:id="@+id/lend_divider_base"
+                            android:layout_width="1dp"
+                            android:layout_height="0dp"
+                            android:background="@color/black"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintHorizontal_bias="0.3"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/label_lend_department"
+                            style="@style/Widget.Text.Info"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:gravity="center"
+                            android:text="@string/label_base_department"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/lend_divider_base"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/lend_department"
+                            style="@style/Widget.Text.Info"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:text="@{vm.data.department}"
+                            app:layout_constraintBottom_toBottomOf="@id/label_lend_department"
+                            app:layout_constraintLeft_toLeftOf="@id/lend_divider_base"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/label_lend_department" />
+
+                        <View
+                            android:id="@+id/lend_divider_base_h_1"
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:background="@color/black"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/label_lend_department" />
+
+                        <TextView
+                            android:id="@+id/label_lend_person"
+                            style="@style/Widget.Text.Info"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:gravity="center"
+                            android:text="@string/label_base_person"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/lend_divider_base"
+                            app:layout_constraintTop_toBottomOf="@id/lend_divider_base_h_1" />
+
+                        <TextView
+                            android:id="@+id/lend_person"
+                            style="@style/Widget.Text.Info"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:text="@{vm.data.person}"
+                            app:layout_constraintBottom_toBottomOf="@id/label_lend_person"
+                            app:layout_constraintLeft_toLeftOf="@id/lend_divider_base"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/label_lend_person" />
+
+                        <View
+                            android:id="@+id/lend_divider_base_h_2"
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:background="@color/black"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/label_lend_person" />
+
+                        <TextView
+                            android:id="@+id/label_lend_area"
+                            style="@style/Widget.Text.Info"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:gravity="center"
+                            android:text="@string/label_base_area"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/lend_divider_base"
+                            app:layout_constraintTop_toBottomOf="@id/lend_divider_base_h_2" />
+
+                        <TextView
+                            android:id="@+id/lend_area"
+                            style="@style/Widget.Text.Info"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:text="@{vm.data.area}"
+                            app:layout_constraintBottom_toBottomOf="@id/label_lend_area"
+                            app:layout_constraintLeft_toLeftOf="@id/lend_divider_base"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/label_lend_area" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/info_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:text="@string/label_archive_detail"
+                        android:textColor="@color/color_text_black_primary"
+                        android:textSize="18sp" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/bg_info_8">
+
+                        <View
+                            android:id="@+id/divider_archive"
+                            android:layout_width="1dp"
+                            android:layout_height="0dp"
+                            android:background="@color/black"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintHorizontal_bias="0.3"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/label_name"
+                            style="@style/Widget.Text.Info"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:gravity="center"
+                            android:text="@string/label_archive_name"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/divider_archive"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/name"
+                            style="@style/Widget.Text.Info"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:text="@{vm.data.name}"
+                            app:layout_constraintBottom_toBottomOf="@id/label_name"
+                            app:layout_constraintLeft_toLeftOf="@id/divider_archive"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/label_name" />
+
+                        <View
+                            android:id="@+id/divider_archive_h_1"
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:background="@color/black"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/label_name" />
+
+                        <TextView
+                            android:id="@+id/label_brand"
+                            style="@style/Widget.Text.Info"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:gravity="center"
+                            android:text="@string/label_archive_brand"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/divider_archive"
+                            app:layout_constraintTop_toBottomOf="@id/divider_archive_h_1" />
+
+                        <TextView
+                            android:id="@+id/brand"
+                            style="@style/Widget.Text.Info"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:text="@{vm.data.brand}"
+                            app:layout_constraintBottom_toBottomOf="@id/label_brand"
+                            app:layout_constraintLeft_toLeftOf="@id/divider_archive"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/label_brand" />
+
+                        <View
+                            android:id="@+id/divider_archive_h_2"
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:background="@color/black"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/label_brand" />
+
+                        <TextView
+                            android:id="@+id/label_spec"
+                            style="@style/Widget.Text.Info"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:gravity="center"
+                            android:text="@string/label_archive_spec"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/divider_archive"
+                            app:layout_constraintTop_toBottomOf="@id/divider_archive_h_2" />
+
+                        <TextView
+                            android:id="@+id/spec"
+                            style="@style/Widget.Text.Info"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:text="@{vm.data.spec}"
+                            app:layout_constraintBottom_toBottomOf="@id/label_spec"
+                            app:layout_constraintLeft_toLeftOf="@id/divider_archive"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/label_spec" />
+
+                        <View
+                            android:id="@+id/divider_archive_h_3"
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:background="@color/black"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/label_spec" />
+
+                        <TextView
+                            android:id="@+id/label_unit"
+                            style="@style/Widget.Text.Info"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:gravity="center"
+                            android:text="@string/label_archive_unit"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/divider_archive"
+                            app:layout_constraintTop_toBottomOf="@id/divider_archive_h_3" />
+
+                        <TextView
+                            android:id="@+id/unit"
+                            style="@style/Widget.Text.Info"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:text="@{vm.data.unit}"
+                            app:layout_constraintBottom_toBottomOf="@id/label_unit"
+                            app:layout_constraintLeft_toLeftOf="@id/divider_archive"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/label_unit" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/bg_info_8">
+
+                        <View
+                            android:id="@+id/divider_other"
+                            android:layout_width="1dp"
+                            android:layout_height="0dp"
+                            android:background="@color/black"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintHorizontal_bias="0.3"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/label_qty"
+                            style="@style/Widget.Text.Info"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:gravity="center"
+                            android:text="@string/label_qty"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/divider_other"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <EditText
+                            android:id="@+id/qty"
+                            style="@style/Widget.Text.Info"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_marginEnd="4dp"
+                            android:autofillHints="@null"
+                            android:background="@null"
+                            android:hint="@null"
+                            android:inputType="number"
+                            android:text="@={vm.qty}"
+                            app:layout_constraintBottom_toBottomOf="@id/label_qty"
+                            app:layout_constraintLeft_toLeftOf="@id/divider_other"
+                            app:layout_constraintRight_toLeftOf="@id/qty_star"
+                            app:layout_constraintTop_toTopOf="@id/label_qty" />
+
+                        <ImageView
+                            android:id="@+id/qty_star"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:layout_marginEnd="4dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_star"
+                            app:layout_constraintBottom_toBottomOf="@id/qty"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/qty" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+            <RelativeLayout
+                android:id="@+id/bottom_layout"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_weight="0"
+                android:background="@color/gray_600"
+                android:clickable="true">
+
+                <TextView
+                    android:id="@+id/clear"
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center"
+                    android:text="@string/label_clear"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/submit_btn"
+                    android:layout_width="96dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/selector_color_accent"
+                    android:gravity="center"
+                    android:text="@string/action_submit"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+            </RelativeLayout>
+        </LinearLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

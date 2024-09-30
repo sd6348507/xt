@@ -1,0 +1,150 @@
+<resources>
+    <string name="app_name">协泰设备管理</string>
+
+    <string name="label_login">登录</string>
+    <string name="label_login_username_hint">请输入账号</string>
+    <string name="label_login_password_hint">请输入密码</string>
+
+    <string name="label_subscribe">设备申购</string>
+    <string name="label_buy">设备采购</string>
+    <string name="label_repair">设备维修</string>
+    <string name="label_re_confirm">维修确认</string>
+    <string name="label_lend">设备借出</string>
+    <string name="label_return">设备归还</string>
+    <string name="label_transfer">设备转移</string>
+    <string name="label_asset">资产处理</string>
+    <string name="label_sale">设备销售</string>
+    <string name="label_scrapped">设备报废</string>
+    <string name="label_archive">设备档案</string>
+    <string name="label_check_in">盘点入库</string>
+
+    <string name="label_repair_search_hint">设备编码</string>
+
+    <string name="label_equipment_info">设备信息</string>
+    <string name="label_equipment_no">设备编码</string>
+    <string name="label_equipment_name">设备名称</string>
+    <string name="label_equipment_spec">规格</string>
+    <string name="label_equipment_model">型号</string>
+    <string name="label_equipment_unit">单位</string>
+
+    <string name="label_add_repair">添加维修设备</string>
+
+    <string name="label_repair_detail">维修设备明细</string>
+
+    <string name="label_repair_info">维修信息</string>
+
+    <string name="label_repair_no">维修单号</string>
+    <string name="label_repair_date">维修日期</string>
+    <string name="label_repair_reason">维修原因</string>
+    <string name="label_repair_firm">维修厂商</string>
+    <string name="label_repair_count">维修数量</string>
+    <string name="label_repair_price">维修单价</string>
+
+
+    <string name="label_lend_review">设备借出审核</string>
+    <string name="label_lend_info">借出信息</string>
+    <string name="label_lend_source">借出单位</string>
+    <string name="label_return_review">设备归还审核</string>
+    <string name="label_return_info">归还信息</string>
+    <string name="label_return_source">归还单位</string>
+
+    <string name="no_data">暂无数据</string>
+    <string name="no_network">网络异常</string>
+    <string name="no_network_tip">请检查网络后点击重新加载</string>
+    <string name="data_error">数据获取失败</string>
+    <string name="network_unavailable_tip">网络连接不可用,请检查网络设置!</string>
+
+    <string name="label_action_retry">重试</string>
+
+    <string name="label_confirm">确定</string>
+    <string name="label_cancel">取消</string>
+    
+    <string name="action_wait">请等待</string>
+    <string name="action_open_bt"><u>连接</u></string>
+    <string name="action_close_bt"><u>断开</u></string>
+    <string name="action_print">打印</string>
+
+    <string name="label_search_filter">查询过滤</string>
+    <string name="label_preview">预览</string>
+    <string name="label_clear">清空</string>
+
+    <string name="label_bt_print">蓝牙打印</string>
+    <string name="label_printer_connected">已连接打印机</string>
+    <string name="label_printer_disconnected">未连接打印机</string>
+    <string name="label_conn_name">扫描设备</string>
+    <string name="label_conn_mac">设备号</string>
+    <string name="label_printer">打印机：</string>
+    <string name="label_printer_state">打印机连接状态:</string>
+    <string name="label_connect_printer">连接打印机</string>
+    <string name="label_printer_disconnect">断开连接</string>
+    <string name="label_connect_bluetooth">连接蓝牙打印机</string>
+    <string name="label_bluetooth_last">上次连接的设备</string>
+    <string name="label_bluetooth_conn">已连接的设备</string>
+    <string name="label_bluetooth_devices">可连接设备</string>
+    <string name="label_bluetooth_discovery_start">扫描设备</string>
+    <string name="label_bluetooth_discovery_cancel">停止扫描</string>
+
+    <string name="label_printer_title">萍乡协泰资产卡牌</string>
+    <string name="label_printer_no">资产编码</string>
+    <string name="label_printer_name">设备名称</string>
+    <string name="label_printer_department">责任部门</string>
+    <string name="label_printer_area">存放位置</string>
+    <string name="label_printer_worker">责任人</string>
+    <string name="label_printer_date">盘点日期</string>
+    <string name="label_printer_spec">规格型号</string>
+    <string name="label_printer_cancel">取消打印</string>
+
+    <string name="label_archive_list_null">没有设备档案信息，点击新建</string>
+    <string name="label_archive_detail">设备档案信息</string>
+    <string name="label_archive_add">新建设备档案</string>
+    <string name="label_archive_category">类别名称</string>
+    <string name="label_archive_name">设备名称</string>
+    <string name="label_archive_no">设备编号</string>
+    <string name="label_archive_brand">品牌</string>
+    <string name="label_archive_spec">规格型号</string>
+    <string name="label_archive_unit">计量单位</string>
+
+    <string name="label_archive_in_date">入库日期</string>
+    <string name="label_archive_manufacturer">厂商</string>
+
+    <string name="label_qty">数量</string>
+    <string name="label_source">来源类别</string>
+
+    <string name="label_base_info">基础信息</string>
+    <string name="label_base_cost_com">归属公司</string>
+    <string name="label_base_no">固定资产编码</string>
+    <string name="label_base_department">责任部门</string>
+    <string name="label_base_person">责任人</string>
+    <string name="label_base_area">存放位置</string>
+
+    <string name="label_base_info_old">原基础信息</string>
+    <string name="label_base_department_old">原责任部门</string>
+    <string name="label_base_person_old">原责任人</string>
+    <string name="label_base_area_old">原存放位置</string>
+
+    <string name="label_base_info_new">新基础信息</string>
+    <string name="label_base_department_new">新责任部门</string>
+    <string name="label_base_person_new">新责任人</string>
+    <string name="label_base_area_new">新存放位置</string>
+
+    <string name="label_transfer_review">设备转移审核</string>
+    <string name="label_order">单号</string>
+    <string name="label_provider">供应商</string>
+
+    <string name="label_assets_search">资产查询</string>
+
+    <string name="label_update_app_version">当前版本：</string>
+    <string name="label_update_net_version">最新版本：</string>
+    <string name="action_update_version">更新版本</string>
+    <string name="action_update_percent">%1$s %%</string>
+
+    <string name="action_add">添加</string>
+    <string name="action_new">新建</string>
+    <string name="action_search">搜索</string>
+    <string name="action_scan">扫描</string>
+    <string name="action_update">更新</string>
+    <string name="action_setting">设置</string>
+    <string name="action_install">安装</string>
+    <string name="action_submit">提交</string>
+
+</resources>

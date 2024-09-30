@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="vm"
+            type="com.roemsoft.equipment.ui.login.LoginViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@color/white" >
+
+        <ImageView
+            android:id="@+id/login_bg"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@null"
+            android:src="@drawable/bg_login"
+            android:scaleType="fitXY"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintHeight_percent="0.5"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="216dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@color/white"
+            android:layout_below="@id/login_bg"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <ImageView
+                android:id="@+id/login_user_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="32dp"
+                android:contentDescription="@null"
+                android:src="@drawable/bg_username"
+                app:layout_constraintTop_toTopOf="@id/login_username_view"
+                app:layout_constraintBottom_toBottomOf="@id/login_username_view"
+                app:layout_constraintLeft_toLeftOf="parent" />
+
+            <EditText
+                android:id="@+id/login_username_view"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:hint="@string/label_login_username_hint"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginTop="32dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="32dp"
+                android:inputType="text"
+                android:maxLines="1"
+                android:imeOptions="actionNext"
+                android:background="@null"
+                android:text="@={vm.username}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/login_user_icon"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <ImageView
+                android:id="@+id/login_pw_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@null"
+                android:src="@drawable/bg_pw"
+                app:layout_constraintTop_toTopOf="@id/login_pw_view"
+                app:layout_constraintBottom_toBottomOf="@id/login_pw_view"
+                app:layout_constraintLeft_toLeftOf="@id/login_user_icon" />
+
+            <EditText
+                android:id="@+id/login_pw_view"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:hint="@string/label_login_password_hint"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginTop="8dp"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:imeOptions="actionNext"
+                android:background="@null"
+                android:text="@={vm.password}"
+                app:layout_constraintTop_toBottomOf="@id/login_username_view"
+                app:layout_constraintLeft_toLeftOf="@id/login_username_view"
+                app:layout_constraintRight_toRightOf="@id/login_username_view" />
+
+            <Button
+                android:id="@+id/login_login_btn"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="32dp"
+                android:gravity="center"
+                android:text="@string/label_login"
+                android:onClick="@{()->vm.login()}"
+                android:background="@drawable/selector_color_primary_4dp"
+                app:layout_constraintTop_toBottomOf="@id/login_pw_view"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

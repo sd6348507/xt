@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="vm"
+            type="com.roemsoft.equipment.ui.update.UpdateViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Widget.App.Toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:elevation="0dp"
+                app:layout_scrollFlags="enterAlways">
+
+                <TextView
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title" />
+
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_activity_bg_gray"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/update_horizontal_guide_line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/update_vertical_guide_line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5"/>
+
+            <TextView
+                android:id="@+id/update_app_version_label"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:text="@string/label_update_app_version"
+                android:textColor="@color/color_text_black_primary"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@id/update_net_version_label"
+                app:layout_constraintRight_toLeftOf="@id/update_vertical_guide_line" />
+
+            <TextView
+                android:id="@+id/update_app_version"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:text="@{vm.appVersion}"
+                android:textColor="@color/color_text_black_primary"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/update_app_version_label"
+                app:layout_constraintLeft_toRightOf="@id/update_vertical_guide_line"
+                app:layout_constraintTop_toTopOf="@id/update_app_version_label" />
+
+            <TextView
+                android:id="@+id/update_net_version_label"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:text="@string/label_update_net_version"
+                android:textColor="@color/color_text_black_primary"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@id/update_horizontal_guide_line"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintRight_toLeftOf="@id/update_vertical_guide_line" />
+
+            <TextView
+                android:id="@+id/update_net_version"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:textColor="@color/color_text_black_primary"
+                android:textSize="16sp"
+                android:text="@{vm.lastVersion}"
+                app:layout_constraintBottom_toBottomOf="@id/update_net_version_label"
+                app:layout_constraintLeft_toRightOf="@id/update_vertical_guide_line"
+                app:layout_constraintTop_toTopOf="@id/update_net_version_label" />
+
+            <ProgressBar
+                android:id="@+id/update_progress_bar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_margin="32dp"
+                android:max="100"
+                android:progress="@{vm.progress}"
+                android:progressDrawable="@drawable/progress_horizontal"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/update_net_version_label" />
+
+            <TextView
+                android:id="@+id/update_progress_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:text="@{@string/action_update_percent(vm.progress)}"
+                app:layout_constraintBottom_toBottomOf="@id/update_progress_bar"
+                app:layout_constraintLeft_toLeftOf="@id/update_progress_bar"
+                app:layout_constraintRight_toRightOf="@id/update_progress_bar"
+                app:layout_constraintTop_toTopOf="@id/update_progress_bar" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/update_progress_group"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="invisible"
+                app:constraint_referenced_ids="update_progress_text, update_progress_bar" />
+
+            <TextView
+                android:id="@+id/update_install"
+                android:layout_width="92dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="36dp"
+                android:background="@drawable/selector_color_primary_4dp"
+                android:gravity="center"
+                android:text="@string/action_install"
+                android:textColor="@color/white"
+                android:visibility="@{vm.installVisibility}"
+                android:onClick="@{()->vm.installApkFile()}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/update_progress_bar" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

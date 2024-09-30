@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="source">
+        <item></item>
+        <item>新购</item>
+        <item>盘盈</item>
+    </string-array>
+</resources>

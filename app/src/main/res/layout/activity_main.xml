@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:contentScrim="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <ImageView
+                    android:id="@+id/article_toolbar_parallax"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@null"
+                    android:maxHeight="180dp"
+                    android:src="@drawable/bg_login"
+                    android:scaleType="centerCrop"
+                    app:layout_collapseMode="parallax"
+                    app:layout_collapseParallaxMultiplier="0.7" />
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    style="@style/Widget.App.Toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:elevation="0dp"
+                    android:background="@color/transparent"
+                    app:layout_collapseMode="pin">
+
+                    <TextView
+                        android:id="@+id/toolbar_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title" />
+
+                </androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/img_subscribe"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/main_img_height"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="@null"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/img_buy"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_subscribe_2" />
+
+                <TextView
+                    android:id="@+id/label_subscribe"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="16dp"
+                    android:text="@string/label_subscribe"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="@id/img_subscribe"
+                    app:layout_constraintRight_toRightOf="@id/img_subscribe"
+                    app:layout_constraintTop_toBottomOf="@id/img_subscribe" />
+
+                <ImageView
+                    android:id="@+id/img_buy"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/main_img_height"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="@null"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintLeft_toRightOf="@id/img_subscribe"
+                    app:layout_constraintRight_toLeftOf="@id/img_repair"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_buy_2" />
+
+                <TextView
+                    android:id="@+id/label_buy"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="16dp"
+                    android:text="@string/label_buy"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="@id/img_buy"
+                    app:layout_constraintRight_toRightOf="@id/img_buy"
+                    app:layout_constraintTop_toBottomOf="@id/img_buy" />
+
+                <ImageView
+                    android:id="@+id/img_repair"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/main_img_height"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="@null"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintLeft_toRightOf="@id/img_buy"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_repair_2" />
+
+                <TextView
+                    android:id="@+id/label_repair"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="16dp"
+                    android:text="@string/label_repair"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="@id/img_repair"
+                    app:layout_constraintRight_toRightOf="@id/img_repair"
+                    app:layout_constraintTop_toBottomOf="@id/img_repair" />
+
+                <ImageView
+                    android:id="@+id/img_confirm"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/main_img_height"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="@null"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintLeft_toLeftOf="@id/img_subscribe"
+                    app:layout_constraintRight_toRightOf="@id/img_subscribe"
+                    app:layout_constraintTop_toBottomOf="@id/label_subscribe"
+                    app:srcCompat="@drawable/ic_confirm" />
+
+                <TextView
+                    android:id="@+id/label_confirm"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="16dp"
+                    android:text="@string/label_re_confirm"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="@id/img_confirm"
+                    app:layout_constraintRight_toRightOf="@id/img_confirm"
+                    app:layout_constraintTop_toBottomOf="@id/img_confirm" />
+
+                <ImageView
+                    android:id="@+id/img_lend"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/main_img_height"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="@null"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintLeft_toLeftOf="@id/img_buy"
+                    app:layout_constraintRight_toRightOf="@id/img_buy"
+                    app:layout_constraintTop_toBottomOf="@id/label_buy"
+                    app:srcCompat="@drawable/ic_lend" />
+
+                <TextView
+                    android:id="@+id/label_lend"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="16dp"
+                    android:text="@string/label_lend"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="@id/img_lend"
+                    app:layout_constraintRight_toRightOf="@id/img_lend"
+                    app:layout_constraintTop_toBottomOf="@id/img_lend" />
+
+                <ImageView
+                    android:id="@+id/img_return"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/main_img_height"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="@null"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintLeft_toLeftOf="@id/img_repair"
+                    app:layout_constraintRight_toRightOf="@id/img_repair"
+                    app:layout_constraintTop_toBottomOf="@id/label_repair"
+                    app:srcCompat="@drawable/ic_return" />
+
+                <TextView
+                    android:id="@+id/label_return"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="16dp"
+                    android:text="@string/label_return"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="@id/img_return"
+                    app:layout_constraintRight_toRightOf="@id/img_return"
+                    app:layout_constraintTop_toBottomOf="@id/img_return" />
+
+
+                <ImageView
+                    android:id="@+id/img_transfer"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/main_img_height"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="@null"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintLeft_toLeftOf="@id/img_confirm"
+                    app:layout_constraintRight_toRightOf="@id/img_confirm"
+                    app:layout_constraintTop_toBottomOf="@id/label_confirm"
+                    app:srcCompat="@drawable/ic_transfer" />
+
+                <TextView
+                    android:id="@+id/label_transfer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="16dp"
+                    android:text="@string/label_transfer"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="@id/img_transfer"
+                    app:layout_constraintRight_toRightOf="@id/img_transfer"
+                    app:layout_constraintTop_toBottomOf="@id/img_transfer" />
+
+                <ImageView
+                    android:id="@+id/img_asset"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/main_img_height"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="@null"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintLeft_toLeftOf="@id/img_lend"
+                    app:layout_constraintRight_toRightOf="@id/img_lend"
+                    app:layout_constraintTop_toBottomOf="@id/label_lend"
+                    app:srcCompat="@drawable/ic_asset" />
+
+                <TextView
+                    android:id="@+id/label_asset"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="16dp"
+                    android:text="@string/label_asset"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="@id/img_asset"
+                    app:layout_constraintRight_toRightOf="@id/img_asset"
+                    app:layout_constraintTop_toBottomOf="@id/img_asset" />
+
+                <ImageView
+                    android:id="@+id/img_sale"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/main_img_height"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="@null"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintLeft_toLeftOf="@id/img_return"
+                    app:layout_constraintRight_toRightOf="@id/img_return"
+                    app:layout_constraintTop_toBottomOf="@id/label_return"
+                    app:srcCompat="@drawable/ic_sale" />
+
+                <TextView
+                    android:id="@+id/label_sale"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="16dp"
+                    android:text="@string/label_sale"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="@id/img_sale"
+                    app:layout_constraintRight_toRightOf="@id/img_sale"
+                    app:layout_constraintTop_toBottomOf="@id/img_sale" />
+
+                <ImageView
+                    android:id="@+id/img_scrapped"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/main_img_height"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="@null"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintLeft_toLeftOf="@id/img_transfer"
+                    app:layout_constraintRight_toRightOf="@id/img_transfer"
+                    app:layout_constraintTop_toBottomOf="@id/label_transfer"
+                    app:srcCompat="@drawable/ic_scrapped" />
+
+                <TextView
+                    android:id="@+id/label_scrapped"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="16dp"
+                    android:text="@string/label_scrapped"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="@id/img_scrapped"
+                    app:layout_constraintRight_toRightOf="@id/img_scrapped"
+                    app:layout_constraintTop_toBottomOf="@id/img_scrapped" />
+
+                <ImageView
+                    android:id="@+id/img_printer"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/main_img_height"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="@null"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintLeft_toLeftOf="@id/img_asset"
+                    app:layout_constraintRight_toRightOf="@id/img_asset"
+                    app:layout_constraintTop_toBottomOf="@id/label_asset"
+                    app:srcCompat="@drawable/ic_printer" />
+
+                <TextView
+                    android:id="@+id/label_printer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="16dp"
+                    android:text="@string/label_bt_print"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="@id/img_printer"
+                    app:layout_constraintRight_toRightOf="@id/img_printer"
+                    app:layout_constraintTop_toBottomOf="@id/img_printer" />
+
+                <ImageView
+                    android:id="@+id/img_archive"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/main_img_height"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="@null"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintLeft_toLeftOf="@id/img_sale"
+                    app:layout_constraintRight_toRightOf="@id/img_sale"
+                    app:layout_constraintTop_toBottomOf="@id/label_sale"
+                    app:srcCompat="@drawable/ic_archive" />
+
+                <TextView
+                    android:id="@+id/label_archive"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="16dp"
+                    android:text="@string/label_archive"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="@id/img_archive"
+                    app:layout_constraintRight_toRightOf="@id/img_archive"
+                    app:layout_constraintTop_toBottomOf="@id/img_archive" />
+
+                <ImageView
+                    android:id="@+id/img_check_in"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/main_img_height"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="@null"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintLeft_toLeftOf="@id/img_scrapped"
+                    app:layout_constraintRight_toRightOf="@id/img_scrapped"
+                    app:layout_constraintTop_toBottomOf="@id/label_scrapped"
+                    app:srcCompat="@drawable/ic_check_in" />
+
+                <TextView
+                    android:id="@+id/label_check_in"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="16dp"
+                    android:text="@string/label_check_in"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="@id/img_check_in"
+                    app:layout_constraintRight_toRightOf="@id/img_check_in"
+                    app:layout_constraintTop_toBottomOf="@id/img_check_in" />
+
+                <ImageView
+                    android:id="@+id/img_assets_search"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/main_img_height"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="@null"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintLeft_toLeftOf="@id/img_asset"
+                    app:layout_constraintRight_toRightOf="@id/img_asset"
+                    app:layout_constraintTop_toBottomOf="@id/label_printer"
+                    app:srcCompat="@drawable/ic_assets_search" />
+
+                <TextView
+                    android:id="@+id/label_assets_search"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="16dp"
+                    android:text="@string/label_assets_search"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="@id/img_assets_search"
+                    app:layout_constraintRight_toRightOf="@id/img_assets_search"
+                    app:layout_constraintTop_toBottomOf="@id/img_assets_search" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

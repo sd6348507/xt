@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="data"
+            type="com.roemsoft.equipment.bean.LRListData" />
+        <variable
+            name="isChecked"
+            type="Boolean" />
+    </data>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:showDividers="middle"
+        android:divider="@color/black"
+        android:background="@{isChecked ? @drawable/bg_item_red : @drawable/bg_item}">
+
+        <TextView
+            android:id="@+id/return_content_order"
+            style="@style/Item.AutoSizeText"
+            android:layout_width="96dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:minWidth="72dp"
+            android:gravity="center"
+            android:text="@{data.tkNo}"
+            android:textColor="@{isChecked ? @color/white : @color/color_text_black_primary}"/>
+
+        <TextView
+            android:id="@+id/return_content_source"
+            style="@style/Item.AutoSizeText"
+            android:layout_width="96dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:minWidth="72dp"
+            android:gravity="center"
+            android:text="@{data.provider}"
+            android:textColor="@{isChecked ? @color/white : @color/color_text_black_primary}"/>
+
+        <TextView
+            android:id="@+id/return_content_archive_name"
+            style="@style/Item.AutoSizeText"
+            android:layout_width="96dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:minWidth="72dp"
+            android:gravity="center"
+            android:text="@{data.archiveName}"
+            android:textColor="@{isChecked ? @color/white : @color/color_text_black_primary}"/>
+
+        <TextView
+            android:id="@+id/return_content_person"
+            style="@style/Item.AutoSizeText"
+            android:layout_width="96dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:minWidth="72dp"
+            android:gravity="center"
+            android:text="@{data.person}"
+            android:textColor="@{isChecked ? @color/white : @color/color_text_black_primary}"/>
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.roemsoft.equipment.bean.Equipment" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tool="http://schemas.android.com/tools"
+        android:id="@+id/info_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/info_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_equipment_info"
+            android:textColor="@color/color_text_black_primary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_info_8">
+
+            <View
+                android:id="@+id/info_divider"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.3"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/info_divider_h_1"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.3333" />
+
+            <View
+                android:id="@+id/info_divider_h_2"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.6666" />
+
+            <TextView
+                android:id="@+id/no_label"
+                style="@style/Widget.Text.Info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/label_equipment_no"
+                app:layout_constraintBottom_toBottomOf="@id/info_divider_h_1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/info_divider"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/no"
+                style="@style/Widget.Text.Info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBaseline_toBaselineOf="@id/no_label"
+                app:layout_constraintLeft_toLeftOf="@id/info_divider"
+                app:layout_constraintRight_toRightOf="parent"
+                tool:text="设备编码" />
+
+            <TextView
+                android:id="@+id/name_label"
+                style="@style/Widget.Text.Info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/label_equipment_name"
+                app:layout_constraintBottom_toBottomOf="@id/info_divider_h_2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/info_divider"
+                app:layout_constraintTop_toTopOf="@id/info_divider_h_1" />
+
+            <TextView
+                android:id="@+id/name"
+                style="@style/Widget.Text.Info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBaseline_toBaselineOf="@id/name_label"
+                app:layout_constraintLeft_toLeftOf="@id/info_divider"
+                app:layout_constraintRight_toRightOf="parent"
+                tool:text="设备名称" />
+
+            <TextView
+                android:id="@+id/model_label"
+                style="@style/Widget.Text.Info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/label_equipment_model"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/info_divider"
+                app:layout_constraintTop_toTopOf="@id/info_divider_h_2" />
+
+            <TextView
+                android:id="@+id/model"
+                style="@style/Widget.Text.Info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBaseline_toBaselineOf="@id/model_label"
+                app:layout_constraintLeft_toLeftOf="@id/info_divider"
+                app:layout_constraintRight_toRightOf="parent"
+                tool:text="设备型号" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</layout>

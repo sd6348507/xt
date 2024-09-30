@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="label_confirm">确定</string>
+    <string name="label_cancel">取消</string>
+
+    <string name="action_wait">请等待</string>
+
+</resources>
